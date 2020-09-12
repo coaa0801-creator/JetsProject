@@ -5,7 +5,7 @@ public abstract class Jet {
 	private double speed;
 	private int range;
 	private long price;
-	
+	private double time;
 	
 	public Jet(String model, double speed, int range, long price) {
 		this.model = model;
@@ -13,16 +13,26 @@ public abstract class Jet {
 		this.range = range;
 		this.price = price;
 	}
-	public String fly() {
-		String jetfly = "WEEE, I'm Flying";
-		return jetfly;
+	public void fly() {
+		System.out.println("WEEE, I'm Flying");
+		
 		
 	}
-	
-	public double getTimeBeforeNoFuel() {
+	public int getHoursBeforeNoFuel() {
+		int hours = (int)time;
+		return hours;
+	}
+	public int getMinutesBeforeNoFuel() {
+		int minutes = (int) ((time % 1)*60);
+	return minutes;
+	}
+		
+		
+	public double getTimealoft () {	
 		double time = range / speed;
 		return time;
 	}
+	
 	
 	public double getSpeedInMach() {
 		double machSpeed = this.speed / 760;

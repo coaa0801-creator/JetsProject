@@ -8,12 +8,12 @@ public class PassengerPlane extends Jet implements PassengerFlight, CargoCarrier
 		super(model, speed, range, price);
 	}
 	@Override
-	public String fly() {
+	public void fly() {
 		DecimalFormat rnd = new DecimalFormat("##.0");
-		String ppFly = "I am a " + getClass().getSimpleName() + "but my friends call me a " + getModel() + ". I can travel "
+		System.out.println("Passenger Plane taking off... Model " + getModel() + ", can travel "
 				+ getRange() + " miles at a speed of " + getSpeed() + " miles per hour. That's Mach " + rnd.format(getSpeedInMach())
-				+ ". Meaning I can fly for " + rnd.format(getTimeBeforeNoFuel()) + "before I run out of fuel.";
-return ppFly;
+				+ ". Meaning this " + getModel() + " can fly for " + getHoursBeforeNoFuel() + " hours and " + getMinutesBeforeNoFuel() + " minutes before I run out of fuel.");
+//return ppFly;
 		
 	}
 	@Override
@@ -29,8 +29,8 @@ return ppFly;
 	}
 	@Override
 	public String toString() {
-		return "\nPassenger Plane : " + getModel() + "\n\t\tax Speed : " + getSpeed() + "mph\n\t\tRange : " + getRange()
-				+ "\n\t\tPrice : " + getPrice() + " US Dollars";
+		return "\nPassenger Plane : " + getModel() + "\n\t\tax Speed : " + getSpeed() + " mph\n\t\tRange : " + getRange()
+				+ " miles\n\t\tPrice : " + getPrice() + " US Dollars";
 	}
 
 }

@@ -49,11 +49,37 @@ public class Airfield {
 		
 		
 	public void allFly() {
-		Iterator<Jet> it = allplanes.iterator();
-		while (it.hasNext()) {
-			 it.next().fly();
+		System.out.println("All jets, prepare for flight!");
+		for (Jet jet : allplanes) {
+				jet.fly();
+			
 		}
+		
+		}
+	public void longestRange() {
+		System.out.println("The jet with the longest range is: ");
+		Jet longestRange = allplanes.get(0);
+		for (int i = 1; i < allplanes.size(); i++) {
+			if (allplanes.get(i).getRange() > longestRange.getRange()) {
+				longestRange = allplanes.get(i);
+			}
+		}
+		System.out.println(longestRange);
+	}
+
+
+	public void fastestJet() {
+		System.out.println("The jet with the fastest speed is: ");
+		Jet fastestSpeed = allplanes.get(0);
+		for (int i = 1; i < allplanes.size(); i++) {
+			if (allplanes.get(i).getSpeed() > fastestSpeed.getSpeed()) {
+				fastestSpeed = allplanes.get(i);
+			}
+		}
+		System.out.println(fastestSpeed);
+		
+	}
 	}
 		
 
-}
+

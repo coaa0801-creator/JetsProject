@@ -7,30 +7,30 @@ public class FighterJet extends Jet implements CombatReady {
 	public FighterJet(String model, double speed, int range, long price) {
 		super(model, speed, range, price);
 	}
-	public String fly() {
+	
+	@Override
+	public void fly() {
 		DecimalFormat rnd = new DecimalFormat("##.0");
-	String ftrJet = "I am a " + getClass().getSimpleName() + "but my friends call me a " + getModel() + ". I can travel "
+System.out.println("Fighter Jet taking off... Model " + getModel() + ", can travel "
 			+ getRange() + " miles at a speed of " + getSpeed() + " miles per hour. That's Mach " + rnd.format(getSpeedInMach())
-			+ ". Meaning I can fly for " + rnd.format(getTimeBeforeNoFuel()) + "before I run out of fuel.";
-		return ftrJet;
+			+ ". Meaning this " + getModel() + " can fly for " + getHoursBeforeNoFuel() + " hours and " + getMinutesBeforeNoFuel() + " minutes before it runs out of fuel.");
 
 }
 	@Override
 	public String toString() {
-		return "\nFighter Jet : " + getModel() + "\n\t\tMax Speed : " + getSpeed() + "mph\n\t\tRange : " + getRange()
-		+ "\n\t\tPrice : " + getPrice() + " US Dollars";
+		return "\nFighter Jet : " + getModel() + "\n\t\tMax Speed : " + getSpeed() + " mph\n\t\tRange : " + getRange()
+		+ " miles\n\t\tPrice : " + getPrice() + " US Dollars";
 }
 	@Override
 	public void fight() {
 		callToFight();
 		System.out.println("Who is the enemy? I shall destroy them");
-		// TODO Auto-generated method stub
 		
 	}
 	
 	private String callToFight() {
-		return "FighterJet " + getModel() + "I'm fueled and can fight for " + getTimeBeforeNoFuel()
-			+ " hours.";
+		return "FighterJet " + getModel() + "I'm fueled and can fight for " + getHoursBeforeNoFuel()
+			+ " hours and " + getMinutesBeforeNoFuel() + " minutes.";
 	}
 	
 }

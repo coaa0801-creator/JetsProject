@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class RunJetsApp {
 	static RunJetsApp run = new RunJetsApp();
 	private Scanner kb = new Scanner(System.in);
+	private Airfield airfield = new Airfield();
 	
 	
 	public static void main(String[] args) {
@@ -22,6 +23,7 @@ public class RunJetsApp {
 
 	private void launchApp() {
 		run.welcomeUserMenu();
+		airfield.parseFromTextFile();
 		run.MenuSwitch();
 		
 		
@@ -30,7 +32,6 @@ public class RunJetsApp {
 
 
 	private void MenuSwitch() {
-		Airfield airfield = new Airfield();
 		boolean keepGoing = true;
 		
 		while (keepGoing) {
@@ -43,8 +44,12 @@ public class RunJetsApp {
 			break;
 		case "2": 
 			airfield.allFly();
-			
-			
+			break;
+		case "3":
+			airfield.fastestJet();
+		case "4":
+			airfield.longestRange();
+			break;
 		
 		
 		
