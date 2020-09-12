@@ -16,6 +16,11 @@ public class FighterJet extends Jet implements CombatReady {
 
 }
 	@Override
+	public String toString() {
+		return "\nFighter Jet : " + getModel() + "\n\t\tMax Speed : " + getSpeed() + "mph\n\t\tRange : " + getRange()
+		+ "\n\t\tPrice : " + getPrice() + " US Dollars";
+}
+	@Override
 	public void fight() {
 		callToFight();
 		System.out.println("Who is the enemy? I shall destroy them");

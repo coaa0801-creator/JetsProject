@@ -3,6 +3,8 @@ package com.skilldistillery.jets;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class RunJetsApp {
@@ -34,26 +36,24 @@ public class RunJetsApp {
 		System.out.println("What would you like to do?  ");
 		String userInput = kb.nextLine();
 		switch (userInput) {
-		case "1": 
-		run.printFleet();
+		case "1": for (Jet jets : airfield.getAllplanes()) {
+			System.out.println(jets);}
+		case "2":
+		
+		
+		
+		
 		}
+
+			}
+		
 		}
 		
-	}
+		
+	
 
 
-	private void printFleet() {
-		try ( BufferedReader bufIn = new BufferedReader(new FileReader("Jets.txt")) ) {
-			  String line;
-			  while ((line = bufIn.readLine()) != null) {
-			    System.out.println(line);
-			  }
-			}
-			catch (IOException e) {
-			  System.err.println(e);
-			}
 
-	}
 
 
 	private void welcomeUserMenu() {

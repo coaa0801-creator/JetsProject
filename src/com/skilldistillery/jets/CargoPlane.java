@@ -9,6 +9,14 @@ public class CargoPlane extends Jet implements CargoCarrier{
 	}
 	
 	
+	@Override
+	public String toString() {
+		return "\nCargo Plane : " + getModel() + "\n\t\tMax Speed : " + getSpeed() + "mph\n\t\tRange : " + getRange()
+		+ "\n\t\tPrice : " + getPrice() + " US Dollars";
+
+	}
+
+
 	public void fly() {
 		DecimalFormat rnd = new DecimalFormat("##.0");
 	System.out.println("I am a " + getClass().getSimpleName() + "but my friends call me a " + getModel() + ". I can travel "

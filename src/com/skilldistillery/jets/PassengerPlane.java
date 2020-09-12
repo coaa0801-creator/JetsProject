@@ -27,5 +27,10 @@ public class PassengerPlane extends Jet implements PassengerFlight, CargoCarrier
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public String toString() {
+		return "\nPassenger Plane : " + getModel() + "\n\t\tax Speed : " + getSpeed() + "mph\n\t\tRange : " + getRange()
+				+ "\n\t\tPrice : " + getPrice() + " US Dollars";
+	}
 
 }
