@@ -21,6 +21,7 @@ public class RunJetsApp {
 		run.welcomeUserMenu();
 		airfield.parseFromTextFile();
 		run.MenuSwitch();
+		run.Goodbye();
 
 	}
 
@@ -54,6 +55,28 @@ public class RunJetsApp {
 		}
 
 	}
+private void Goodbye() {
+	System.out.println("                     __|__\n\t    __|__ *---o0o---* __|__\n   __|__ *---o0o---*       *---o0o---*\n*---o0o---*");
+	System.out.println("\n<=====================================>");
+	System.out.println("|                                     |");
+	System.out.println("|                                     |");
+	System.out.println("|                GOODBYE              |");
+	System.out.println("|                                     |");
+	System.out.println("|                                     |");
+	System.out.println("<=====================================>");
+	System.out.print("\t           _\n" + 
+			"\t         -=\\`\\\n" + 
+			"\t     |\\ ____\\_\\__\n" + 
+			"\t   -=\\c`\"\"\"\"\"\"\" \"`)\n" + 
+			"\t      `~~~~~/ /~~`\n" + 
+			"\t        -==/ /\n" + 
+			"\t          '-'");
+	
+	
+	
+}
+	
+	
 
 	private void whatChoice() {
 		System.out.println("\nWhat would you like to do?  ");
@@ -82,7 +105,7 @@ public class RunJetsApp {
 	}
 
 	private void printMainMenu() {
-		System.out.println("                     __|__\n\t    __|__ *---o0o---*\n   __|__ *---o0o---*\n*---o0o---*");
+		System.out.println("                     __|__\n\t    __|__ *---o0o---* __|__\n   __|__ *---o0o---*       *---o0o---*\n*---o0o---*");
 
 	System.out.println("\n<=====================================>");
 	System.out.println("|                                     |");
@@ -105,7 +128,7 @@ public class RunJetsApp {
 	}
 
 	private void welcomeUserMenu() {
-		System.out.println("                     __|__\n\t    __|__ *---o0o---*\n   __|__ *---o0o---*\n*---o0o---*");
+		System.out.println("                     __|__\n\t    __|__ *---o0o---* __|__\n   __|__ *---o0o---*       *---o0o---*\n*---o0o---*");
 
 		System.out.println("\n  WELCOME TO THE AIRPORT MANAGER APP");
 		System.out.println("\n<=====================================>");
