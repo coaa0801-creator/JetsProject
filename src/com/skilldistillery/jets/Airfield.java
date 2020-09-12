@@ -54,6 +54,17 @@ public class Airfield {
 				jet.fly();
 			
 		}
+	}
+		public void loadPlanes() {
+			System.out.println("Any of you out there planning to carry something, load up!");
+			for (Jet jet : allplanes) {
+				if (jet instanceof CargoCarrier){
+				((CargoCarrier) jet).loadCargo();
+				}else {
+					continue;
+					}
+			
+			}
 		
 		}
 	public void longestRange() {

@@ -30,7 +30,7 @@ public class CargoPlane extends Jet implements CargoCarrier{
 
 	@Override
 	public void loadCargo() {
-		System.out.println("The cargo is loading....");
+		System.out.println(getModel() +"... Loading up, but it might take a while");
 	}
 		
 }

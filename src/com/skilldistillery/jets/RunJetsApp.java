@@ -49,6 +49,12 @@ public class RunJetsApp {
 				keepGoing = mainOrQuit(keepGoing);
 				break;
 			case "5":
+				airfield.loadPlanes();
+				keepGoing = mainOrQuit(keepGoing);
+				break;
+			case "10":
+				keepGoing = false;
+				break;
 
 			}
 
