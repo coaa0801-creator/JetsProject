@@ -24,13 +24,13 @@ System.out.println("Fighter Jet taking off... \n\tModel " + getModel() + ", can 
 	@Override
 	public void fight() {
 		callToFight();
-		System.out.println("Who is the enemy? I shall destroy them");
+		System.out.println("... Who is the enemy? I shall destroy them");
 		
 	}
 	
-	private String callToFight() {
-		return "FighterJet " + getModel() + "I'm fueled and can fight for " + getHoursBeforeNoFuel()
-			+ " hours and " + getMinutesBeforeNoFuel() + " minutes.";
+	private void callToFight() {
+		System.out.println("\nFighterJet " + getModel() + " I'm fueled and can fight for " + getHoursBeforeNoFuel()
+			+ " hours and " + getMinutesBeforeNoFuel() + " minutes.");
 	}
 	
 }

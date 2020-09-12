@@ -30,7 +30,7 @@ public class RunJetsApp {
 		whatChoice();
 		while (keepGoing) {
 			String userInput = kb.nextLine();
-
+			userInput = userInput.toLowerCase();
 			switch (userInput) {
 			case "1":
 				System.out.println(airfield.getAllplanes());
@@ -52,6 +52,9 @@ public class RunJetsApp {
 				airfield.loadPlanes();
 				keepGoing = mainOrQuit(keepGoing);
 				break;
+			case "6" :
+				airfield.dogFight();
+				keepGoing = mainOrQuit(keepGoing);
 			case "10":
 				keepGoing = false;
 				break;
@@ -100,6 +103,7 @@ private void Goodbye() {
 		System.out.println("<=====================================>");
 		whatChoice();
 		String quit = kb.next();
+		quit = quit.toLowerCase();
 		if (quit.equals("2") || quit.equals("quit")) {
 			keepGoing = false;
 		}else { printMainMenu();

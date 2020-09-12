@@ -90,6 +90,21 @@ public class Airfield {
 		System.out.println(fastestSpeed);
 		
 	}
+
+
+	public void dogFight() {
+		System.out.println("It's time for a battle!");
+		for (Jet jet : allplanes) {
+			if (jet instanceof CombatReady){
+				((CombatReady) jet).fight();
+				
+			}else {
+				continue;
+			}
+			
+		}
+		
+	}
 	}
 		
 
