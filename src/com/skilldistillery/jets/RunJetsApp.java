@@ -32,13 +32,20 @@ public class RunJetsApp {
 	private void MenuSwitch() {
 		Airfield airfield = new Airfield();
 		boolean keepGoing = true;
+		
 		while (keepGoing) {
 		System.out.println("What would you like to do?  ");
 		String userInput = kb.nextLine();
+		
 		switch (userInput) {
 		case "1": for (Jet jets : airfield.getAllplanes()) {
 			System.out.println(jets);}
-		case "2":
+			break;
+		case "2": 
+			airfield.allFly();
+			
+			
+		
 		
 		
 		

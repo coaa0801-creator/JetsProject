@@ -13,7 +13,9 @@ public abstract class Jet {
 		this.range = range;
 		this.price = price;
 	}
-	public void fly() {		
+	public String fly() {
+		String jetfly = "WEEE, I'm Flying";
+		return jetfly;
 		
 	}
 	

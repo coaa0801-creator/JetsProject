@@ -17,12 +17,12 @@ public class CargoPlane extends Jet implements CargoCarrier{
 	}
 
 
-	public void fly() {
+	public String fly() {
 		DecimalFormat rnd = new DecimalFormat("##.0");
-	System.out.println("I am a " + getClass().getSimpleName() + "but my friends call me a " + getModel() + ". I can travel "
+	 String cpFly = "I am a " + getClass().getSimpleName() + "but my friends call me a " + getModel() + ". I can travel "
 			+ getRange() + " miles at a speed of " + getSpeed() + " miles per hour. That's Mach " + rnd.format(getSpeedInMach())
-			+ ". Meaning I can fly for " + rnd.format(getTimeBeforeNoFuel()) + "before I run out of fuel.");
-
+			+ ". Meaning I can fly for " + rnd.format(getTimeBeforeNoFuel()) + "before I run out of fuel.";
+return cpFly;
 
 }
 
