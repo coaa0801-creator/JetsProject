@@ -10,9 +10,9 @@ public class PassengerPlane extends Jet implements PassengerFlight, CargoCarrier
 	@Override
 	public void fly() {
 		DecimalFormat rnd = new DecimalFormat("##.0");
-		System.out.println("Passenger Plane taking off... Model " + getModel() + ", can travel "
+		System.out.println("Passenger Plane taking off... \n\tModel " + getModel() + ", can travel "
 				+ getRange() + " miles at a speed of " + getSpeed() + " miles per hour. That's Mach " + rnd.format(getSpeedInMach())
-				+ ". Meaning this " + getModel() + " can fly for " + getHoursBeforeNoFuel() + " hours and " + getMinutesBeforeNoFuel() + " minutes before I run out of fuel.");
+				+ ". Meaning this " + getModel() + " can fly for " + getHoursBeforeNoFuel() + " hours and " + getMinutesBeforeNoFuel() + " minutes before it runs out of fuel.");
 //return ppFly;
 		
 	}
@@ -23,13 +23,13 @@ public class PassengerPlane extends Jet implements PassengerFlight, CargoCarrier
 	}
 	@Override
 	public void loadCargo() {
-		System.out.println("The passengers are loading into the fuselage. Once everyone is seated we will get going.");
+		System.out.println(getModel() +"... The passengers are loading into the fuselage. Once everyone is seated, we will get going.");
 		// TODO Auto-generated method stub
 		
 	}
 	@Override
 	public String toString() {
-		return "\nPassenger Plane : " + getModel() + "\n\t\tax Speed : " + getSpeed() + " mph\n\t\tRange : " + getRange()
+		return "\n\nPassenger Plane : " + getModel() + "\n\t\tax Speed : " + getSpeed() + " mph\n\t\tRange : " + getRange()
 				+ " miles\n\t\tPrice : " + getPrice() + " US Dollars";
 	}
 

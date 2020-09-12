@@ -19,11 +19,11 @@ public abstract class Jet {
 		
 	}
 	public int getHoursBeforeNoFuel() {
-		int hours = (int)time;
+		int hours = (int)getTimealoft();
 		return hours;
 	}
 	public int getMinutesBeforeNoFuel() {
-		int minutes = (int) ((time % 1)*60);
+		int minutes = (int) ((getTimealoft() % 1)*60);
 	return minutes;
 	}
 		

@@ -11,14 +11,14 @@ public class FighterJet extends Jet implements CombatReady {
 	@Override
 	public void fly() {
 		DecimalFormat rnd = new DecimalFormat("##.0");
-System.out.println("Fighter Jet taking off... Model " + getModel() + ", can travel "
+System.out.println("Fighter Jet taking off... \n\tModel " + getModel() + ", can travel "
 			+ getRange() + " miles at a speed of " + getSpeed() + " miles per hour. That's Mach " + rnd.format(getSpeedInMach())
 			+ ". Meaning this " + getModel() + " can fly for " + getHoursBeforeNoFuel() + " hours and " + getMinutesBeforeNoFuel() + " minutes before it runs out of fuel.");
 
 }
 	@Override
 	public String toString() {
-		return "\nFighter Jet : " + getModel() + "\n\t\tMax Speed : " + getSpeed() + " mph\n\t\tRange : " + getRange()
+		return "\n\nFighter Jet : " + getModel() + "\n\t\tMax Speed : " + getSpeed() + " mph\n\t\tRange : " + getRange()
 		+ " miles\n\t\tPrice : " + getPrice() + " US Dollars";
 }
 	@Override

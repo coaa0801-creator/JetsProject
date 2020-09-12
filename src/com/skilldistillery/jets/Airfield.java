@@ -38,7 +38,7 @@ public class Airfield {
 		}
 		
 		public List<Jet> getAllplanes() {
-			parseFromTextFile();
+		
 			return allplanes;
 		}
 
