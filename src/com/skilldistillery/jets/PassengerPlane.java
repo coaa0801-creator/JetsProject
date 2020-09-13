@@ -29,7 +29,7 @@ public class PassengerPlane extends Jet implements PassengerFlight, CargoCarrier
 	}
 	@Override
 	public String toString() {
-		return "\n\nPassenger Plane : " + getModel() + "\n\t\tax Speed : " + getSpeed() + " mph\n\t\tRange : " + getRange()
+		return "\n\nPassenger Plane : " + getModel() + "\n\t\tMax Speed : " + getSpeed() + " mph\n\t\tRange : " + getRange()
 				+ " miles\n\t\tPrice : " + getPrice() + " US Dollars";
 	}
 

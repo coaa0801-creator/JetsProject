@@ -6,10 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 
 public class Airfield {
 	private List<Jet> allplanes = new ArrayList<Jet>();
-	
+	private Scanner kb = new Scanner(System.in);
 	public Airfield() {
 		
 	}
@@ -104,6 +105,57 @@ public class Airfield {
 			
 		}
 		
+	}
+
+
+	public void addAJet() {
+System.out.println("\n<=====================================>");
+System.out.println("|                                     |");
+System.out.println("|           What type of jet          |");
+System.out.println("|         would you like to Add?      |");
+System.out.println("|                                     |");
+System.out.println("|          1: Passenger               |");
+System.out.println("|          2: Fighter                 |");
+System.out.println("|          3: Cargo                   |");
+System.out.println("|                                     |");
+System.out.println("<=====================================>");
+boolean keepGoing = true;
+while (keepGoing) {
+	String addJet = kb.nextLine();
+	addJet = addJet.toLowerCase();
+	switch (addJet) {
+	case "1":
+			System.out.print("What model is this?");
+			String newModel = kb.nextLine();
+			System.out.print("In MPH, what is it's top speed?");
+			Double newSpeed = kb.nextDouble();
+			System.out.print("How many miles can it fly before refueling?");
+			int newRange = (int)kb.nextDouble();
+			System.out.print("How much does it cost?");
+			Long newPrice = kb.nextLong();
+			this.allplanes.add(new PassengerPlane(newModel, newSpeed, newRange, newPrice));
+			keepGoing = false;
+			break;
+		
+		
+		
+	case "2":
+		
+		
+		
+		
+		
+	case "3":
+		
+		
+		
+		
+	default: System.out.println("Please enter a valid tyoe of Jet");	
+	}
+}
+
+
+
 	}
 	}
 		

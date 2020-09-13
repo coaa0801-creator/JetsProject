@@ -55,6 +55,11 @@ public class RunJetsApp {
 			case "6" :
 				airfield.dogFight();
 				keepGoing = mainOrQuit(keepGoing);
+				break;
+			case "7":
+				airfield.addAJet();
+				keepGoing = mainOrQuit(keepGoing);
+				break;
 			case "10":
 				keepGoing = false;
 				break;
