@@ -235,7 +235,124 @@ public class Airfield {
 
 	}
 
-	public void search() {
-			System.out.println("Ooops, this hasn't been created yet but we're working on it...");
+	public String search() {
+		String menu = "Main Menu";
+//		System.out.println("Ooops, this hasn't been created yet but we're working on it...");
+		boolean search = true;
+		while (search) {
+			searchMenu();
+			String searchChoice = kb.nextLine();
+			searchChoice = searchChoice.toUpperCase();
+			switch (searchChoice) {
+			case "NAME":
+			case "SEARCH BY NAME":
+			case "SEARCH NAME":
+			case "BY NAME":
+			case "1":
+//				kb.nextLine();// clear buffer
+
+				System.out.print("What is the model name of the Jet?   ");
+				String searchModel = kb.nextLine();
+				for (Jet jet : allplanes) {
+					if (allplanes == null) {
+						continue;
+					}
+					String test = jet.getModel();
+					if (test.contains(searchModel)) {
+						System.out.println(jet.toString());
+					}
+					if (!test.contains(searchModel)) {
+						continue;
+					}
+				}
+				if (!allplanes.toString().contains(searchModel)) {
+					System.out.println("There is no Jet that has that model name");
+
+				}
+				break;
+
+			case "SPEED":
+			case "BY SPEED":
+			case "2":
+//				kb.nextLine();// clear buffer
+	
+				System.out.print("What is the minimum Max Speed you are looking for?   ");
+				double searchSpeed = kb.nextDouble();
+				kb.nextLine();
+				System.out.println("The following Jets have at least the Max Speed you are looking for\n");
+				for (Jet jet : allplanes) {
+
+					if (jet == null) {
+						continue;
+					}
+					double test = jet.getSpeed();
+					if (searchSpeed < test) {
+						
+						System.out.println(jet.toString());
+					}
+					else if (test < searchSpeed) {
+						continue;}					
+					
+					else {
+						System.out.println("There is no Jet with at least that Max Speed");
+					}
+				}
+
+				break;
+			case "3":
+			case "BY RANGE":
+			case "RANGE":
+//				kb.nextLine();// clear buffer
+				System.out.print("What is the minumum Mileage you need this Jet to go?   ");
+				int searchRange = kb.nextInt();
+				kb.nextLine();
+				System.out.println("The following Jets have at least the range you are looking for\n");
+				for (Jet jet : allplanes) {
+					if (allplanes == null) {
+						continue;
+					}
+					int test = jet.getRange();
+					if (test > searchRange) {
+						System.out.println(jet.toString());
+					}
+					else if (test < searchRange) {
+						continue;}
+					else  {
+							System.out.println("There is no Jet that can go at minimum that distance");
+					}
+				}				
+
+				break;
+			case "4":
+			case "MAIN MENU":
+			case "MENU":
+			case "MAIN":
+				search = false;
+				break;
+			case "5":
+			case "QUIT":
+				search = false;
+				menu = "QUIT";
+				break;
+			default:
+				System.out.println("Please enter a valid search option");
+			}
+		
+		}
+		return menu;
+	}
+
+	private void searchMenu() {
+		System.out.println("\n\n\n<================================>");
+		System.out.println("|           SEARCH MENU          |");
+		System.out.println("|                                |");
+		System.out.println("|   1: By Model Name             |");
+		System.out.println("|   2: By Speed                  |");
+		System.out.println("|   3: By Range                  |");
+		System.out.println("|   4: Main Menu                 |");
+		System.out.println("|   5: Quit                      |");
+		System.out.println("|                                |");
+		System.out.println("<================================>");
+
 	}
 }

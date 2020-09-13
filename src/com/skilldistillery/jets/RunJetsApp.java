@@ -1,10 +1,6 @@
 package com.skilldistillery.jets;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Scanner;
 
 public class RunJetsApp {
@@ -66,9 +62,15 @@ public class RunJetsApp {
 				keepGoing = mainOrQuit(keepGoing);
 				break;
 			case "9":
-				airfield.search();
-				keepGoing = mainOrQuit(keepGoing);
-				break;
+				String menu = airfield.search();
+				if (menu.equals("Main Menu")) {
+				printMainMenu();
+				break;}
+				if (menu.equals("QUIT")) {
+					keepGoing = false;
+					break;
+				}
+					
 			case "10":
 				keepGoing = false;
 				break;
@@ -135,8 +137,7 @@ private void Goodbye() {
 	}
 
 	private void printMainMenu() {
-		System.out.println("                     __|__\n\t    __|__ *---o0o---* __|__\n   __|__ *---o0o---*       *---o0o---*\n*---o0o---*");
-
+		System.out.println(menuPlane((int)(Math.random() * 9)));
 	System.out.println("\n<=====================================>");
 	System.out.println("|                                     |");
 	System.out.println("|               MAIN MENU             |");
@@ -180,4 +181,82 @@ private void Goodbye() {
 		System.out.println("<=====================================>");
 	}
 
+	private String menuPlane(int index) {
+		String[] planeArt = new String [9];
+		planeArt[0] = "                     __|__\n\t    __|__ *---o0o---* __|__\n   __|__ *---o0o---*       *---o0o---*\n*---o0o---*";
+		planeArt[1] = "----|------------|-----------|----\n" + 
+				"    |        --/ - \\--       |\n" + 
+				"   -|---------|  o  |--------|-\n" + 
+				"              /\\ _ /\\\n" + 
+				"           []/       \\[]\n";
+		planeArt[2] = "\t\t __\n" + 
+				"\t\t \\  \\     _ _\n" + 
+				"\t\t  \\**\\ ___\\/ \\\n" + 
+				"\t\tX*#####*+^^\\_\\\n" + 
+				"\t\t  o/\\  \\\n" + 
+				"\t\t     \\__\\";
+		planeArt[3] = " .-.    _,  .-.  ,_    .-.\n" + 
+				"'-._'--'  \\_| |_/  '--'_.-'\n" + 
+				"    '-._  \\ | | /  _.-'\n" + 
+				"        `-.^| |^.-'\n" + 
+				"           `\\=/`\n" + 
+				"             `";
+		planeArt[4] = "            ____\n" + 
+				"  |        | ___\\          /~~~|\n" + 
+				" _:_______|/'(..)`\\_______/  | |\n" + 
+				"<_|``````  \\__~~__/  USAF ___|_|\n" + 
+				"  :\\_____(=========,(*),--\\__|_/\n" + 
+				"  |       \\       /---'\n" + 
+				"           | (*) /\n" + 
+				"           |____/";
+		planeArt[5] = "            ______\n" + 
+				"            _\\ _~-\\___\n" + 
+				"    =  = ==(____AA____D\n" + 
+				"                \\_____\\___________________,-~~~~~~~`-.._\n" + 
+				"                /     o O o o o o O O o o o o o o O o  |\\_\n" + 
+				"                `~-.__        ___..----..                  )\n" + 
+				"                      `---~~\\___________/------------`````\n" + 
+				"                      =  ===(_________D\n";
+		planeArt[6] = "  ___\n" + 
+				" |   \\\n" + 
+				" |    \\                   ___\n" + 
+				" |_____\\______________.-'`   `'-.,___\n" + 
+				"/| _____     _________            ___>---\n" + 
+				"\\|___________________________,.-'`\n" + 
+				"          `'-.,__________)\n";
+		planeArt[7] = "                    ,.\n" + 
+				"                ___( |___\n" + 
+				"                `--- \\---'\n" + 
+				"                    | \\\n" + 
+				"                    \\  \\\n" + 
+				"   __________________\\  \\___________________\n" + 
+				"   \\                     \\                   \\\n" + 
+				"    ------------------    \\-------------------\n" + 
+				"                 (\\)   \\   \\ (\\)\n" + 
+				"                        \\ ' \\\n" + 
+				"                        :`(.)-'\n" + 
+				"                        ` ; `,";
+		planeArt[8] = "                             |\n" + 
+				"                       --====|====--\n" + 
+				"                             |  \n" + 
+				"\n" + 
+				"                         .-\"\"\"\"\"-. \n" + 
+				"                       .'_________'. \n" + 
+				"                      /_/_|__|__|_\\_\\\n" + 
+				"                     ;'-._       _.-';\n" + 
+				",--------------------|    `-. .-'    |--------------------,\n" + 
+				" ``\"\"--..__    ___   ;       '       ;   ___    __..--\"\"``\n" + 
+				"           `\"-// \\\\.._\\             /_..// \\\\-\"`\n" + 
+				"              \\\\_//    '._       _.'    \\\\_//\n" + 
+				"               `\"`        ``---``        `\"`";
+		
+			String menuReturnArt = planeArt[index];
+			return menuReturnArt;
+
+		
+		
+		
+		
+	}
+	
 }
