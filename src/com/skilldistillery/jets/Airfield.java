@@ -4,70 +4,72 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Airfield {
 	private List<Jet> allplanes = new ArrayList<Jet>();
 	private Scanner kb = new Scanner(System.in);
+
 	public Airfield() {
-		
+
 	}
 
-
-		public List<Jet> parseFromTextFile(){
-		try ( BufferedReader bufIn = new BufferedReader(new FileReader("Jets.txt")) ) {
-			  String line;
-			  while ((line = bufIn.readLine()) != null) {
-				String [] planes = line.split(",");
+	public List<Jet> parseFromTextFile() {
+		try (BufferedReader bufIn = new BufferedReader(new FileReader("Jets.txt"))) {
+			String line;
+			while ((line = bufIn.readLine()) != null) {
+				String[] planes = line.split(",");
 				if (planes[0].equals("Cargo Plane")) {
-					this.allplanes.add(new CargoPlane(planes[1],Double.parseDouble(planes[2]),Integer.parseInt(planes[3]),Long.parseLong(planes[4])));
+					this.allplanes.add(new CargoPlane(planes[1], Double.parseDouble(planes[2]),
+							Integer.parseInt(planes[3]), Long.parseLong(planes[4])));
 				}
 				if (planes[0].equals("Fighter Jet")) {
-					this.allplanes.add(new FighterJet(planes[1],Double.parseDouble(planes[2]),Integer.parseInt(planes[3]),Long.parseLong(planes[4])));
+					this.allplanes.add(new FighterJet(planes[1], Double.parseDouble(planes[2]),
+							Integer.parseInt(planes[3]), Long.parseLong(planes[4])));
 				}
 				if (planes[0].equals("Passenger Plane")) {
-					this.allplanes.add(new PassengerPlane(planes[1],Double.parseDouble(planes[2]),Integer.parseInt(planes[3]),Long.parseLong(planes[4])));
+					this.allplanes.add(new PassengerPlane(planes[1], Double.parseDouble(planes[2]),
+							Integer.parseInt(planes[3]), Long.parseLong(planes[4])));
 				}
-			  }
-		}
-			catch (IOException e) {
-			  System.err.println(e);
 			}
+		} catch (IOException e) {
+			System.err.println(e);
+		}
 		return allplanes;
-		}
-		
-		public List<Jet> getAllplanes() {
-		
-			return allplanes;
-		}
+	}
 
-		public void setAllplanes(List<Jet> allplanes) {
+	public List<Jet> getAllplanes() {
+
+		return allplanes;
+	}
+
+	public void setAllplanes(List<Jet> allplanes) {
 		this.allplanes = allplanes;
-		}
+	}
 
-		
-		
 	public void allFly() {
 		System.out.println("All jets, prepare for flight!");
 		for (Jet jet : allplanes) {
-				jet.fly();
-			
+			jet.fly();
+
 		}
 	}
-		public void loadPlanes() {
-			System.out.println("Any of you out there planning to carry something, load up!");
-			for (Jet jet : allplanes) {
-				if (jet instanceof CargoCarrier){
+
+	public void loadPlanes() {
+		System.out.println("Any of you out there planning to carry something, load up!");
+		for (Jet jet : allplanes) {
+			if (jet instanceof CargoCarrier) {
 				((CargoCarrier) jet).loadCargo();
-				}else {
-					continue;
-					}
-			
+			} else {
+				continue;
 			}
-		
+
 		}
+
+	}
+
 	public void longestRange() {
 		System.out.println("The jet with the longest range is: ");
 		Jet longestRange = allplanes.get(0);
@@ -79,7 +81,6 @@ public class Airfield {
 		System.out.println(longestRange);
 	}
 
-
 	public void fastestJet() {
 		System.out.println("The jet with the fastest speed is: ");
 		Jet fastestSpeed = allplanes.get(0);
@@ -89,97 +90,148 @@ public class Airfield {
 			}
 		}
 		System.out.println(fastestSpeed);
-		
-	}
 
+	}
 
 	public void dogFight() {
 		System.out.println("It's time for a battle!");
 		for (Jet jet : allplanes) {
-			if (jet instanceof CombatReady){
+			if (jet instanceof CombatReady) {
 				((CombatReady) jet).fight();
-				
-			}else {
+
+			} else {
 				continue;
 			}
-			
-		}
-		
-	}
 
+		}
+
+	}
 
 	public void addAJet() {
-System.out.println("\n<=====================================>");
-System.out.println("|                                     |");
-System.out.println("|           What type of jet          |");
-System.out.println("|         would you like to Add?      |");
-System.out.println("|                                     |");
-System.out.println("|          1: Passenger               |");
-System.out.println("|          2: Fighter                 |");
-System.out.println("|          3: Cargo                   |");
-System.out.println("|                                     |");
-System.out.println("<=====================================>");
-boolean keepGoing = true;
-while (keepGoing) {
-	String addJet = kb.nextLine();
-	addJet = addJet.toLowerCase();
-	switch (addJet) {
-	case "1": case "passenger":
-			System.out.print("What model is this?");
-			String newModel = kb.nextLine();
-			System.out.print("In MPH, what is it's top speed?");
-			Double newSpeed = kb.nextDouble();
-			System.out.print("How many miles can it fly before refueling?");
-			int newRange = (int)kb.nextDouble();
-			System.out.print("How much does it cost?");
-			Long newPrice = kb.nextLong();
-			this.allplanes.add(new PassengerPlane(newModel, newSpeed, newRange, newPrice));
-			keepGoing = false;
-			break;
-		
-		
-		
-	case "2": case "fighter":
-		System.out.print("What model is this?");
-		newModel = kb.nextLine();
-		System.out.print("In MPH, what is it's top speed?");
-		newSpeed = kb.nextDouble();
-		System.out.print("How many miles can it fly before refueling?");
-		newRange = (int)kb.nextDouble();
-		System.out.print("How much does it cost?");
-		newPrice = kb.nextLong();
-		this.allplanes.add(new FighterJet(newModel, newSpeed, newRange, newPrice));
-		keepGoing = false;
-		break;
-		
-		
-		
-		
-		
-	case "3": case "cargo":
-		System.out.print("What model is this?");
-		newModel = kb.nextLine();
-		System.out.print("In MPH, what is it's top speed?");
-		newSpeed = kb.nextDouble();
-		System.out.print("How many miles can it fly before refueling?");
-		newRange = (int)kb.nextDouble();
-		System.out.print("How much does it cost?");
-		newPrice = kb.nextLong();
-		this.allplanes.add(new CargoPlane(newModel, newSpeed, newRange, newPrice));
-		keepGoing = false;
-		break;
-		
-		
-		
-		
-	default: System.out.println("Please enter a valid tyoe of Jet");	
+		System.out.println("\n<=====================================>");
+		System.out.println("|                                     |");
+		System.out.println("|           What type of jet          |");
+		System.out.println("|         would you like to Add?      |");
+		System.out.println("|                                     |");
+		System.out.println("|          1: Passenger               |");
+		System.out.println("|          2: Fighter                 |");
+		System.out.println("|          3: Cargo                   |");
+		System.out.println("|                                     |");
+		System.out.println("<=====================================>");
+		boolean keepGoing = true;
+		while (keepGoing) {
+			String addJet = kb.nextLine();
+			addJet = addJet.toLowerCase();
+			switch (addJet) {
+			case "1":
+			case "passenger":
+				System.out.print("What model is this?");
+				String newModel = kb.nextLine();
+				System.out.print("In MPH, what is it's top speed?");
+				Double newSpeed = kb.nextDouble();
+				System.out.print("How many miles can it fly before refueling?");
+				int newRange = (int) kb.nextDouble();
+				System.out.print("How much does it cost?");
+				Long newPrice = kb.nextLong();
+				this.allplanes.add(new PassengerPlane(newModel, newSpeed, newRange, newPrice));
+				keepGoing = false;
+				break;
+
+			case "2":
+			case "fighter":
+				System.out.print("What model is this?");
+				newModel = kb.nextLine();
+				System.out.print("In MPH, what is it's top speed?");
+				newSpeed = kb.nextDouble();
+				System.out.print("How many miles can it fly before refueling?");
+				newRange = (int) kb.nextDouble();
+				System.out.print("How much does it cost?");
+				newPrice = kb.nextLong();
+				this.allplanes.add(new FighterJet(newModel, newSpeed, newRange, newPrice));
+				keepGoing = false;
+				break;
+
+			case "3":
+			case "cargo":
+				System.out.print("What model is this?");
+				newModel = kb.nextLine();
+				System.out.print("In MPH, what is it's top speed?");
+				newSpeed = kb.nextDouble();
+				System.out.print("How many miles can it fly before refueling?");
+				newRange = (int) kb.nextDouble();
+				System.out.print("How much does it cost?");
+				newPrice = kb.nextLong();
+				this.allplanes.add(new CargoPlane(newModel, newSpeed, newRange, newPrice));
+				keepGoing = false;
+				break;
+
+			default:
+				System.out.println("Please enter a valid tyoe of Jet");
+			}
+		}
+
+	}
+
+	public void printJetListForUserRemove() {
+		System.out.println("Which Jet would you like to remove from the Fleet?\n");
+		int i = 1;
+		for (Jet jet : allplanes) {
+			System.out.print("Hanger " + i + ": ");
+			i++;
+			System.out.println(jet.getModel());
+		}
+
+	}
+
+	public void removeJet() {
+		boolean gotInvalidInput = true;
+		int userRemove = hangerToRemove();
+		while (gotInvalidInput) {
+			if (userRemove == -1) {
+				userRemove = hangerToRemove();
+			} else {
+				gotInvalidInput = false;
+				break;
+			}
+		}
+
+		int i = 1;
+		boolean jetRemove = false;
+		for (Jet jet : allplanes) {
+			if (userRemove == i) {
+				jetRemove = true;
+				break;
+			} else {
+				i++;
+			}
+		}
+//	System.out.println(userRemove);
+		System.out.println("\nYou have successfully removed airfield parking credntials from " + allplanes.get(i - 1));
+		allplanes.remove(i - 1);
+	}
+
+	private int hangerToRemove() {
+		boolean gotValidInput = false;
+//		int invalid = -1;
+		int userRemove = -1;
+		while (!gotValidInput) {
+			try {
+				System.out.print("\nPlease enter the hanger number for the Jet you would like to remove: ");
+				userRemove = kb.nextInt();
+				gotValidInput = true;
+				return userRemove;
+			} catch (InputMismatchException e) {
+				System.out.println("Invalid input. ");
+				kb.nextLine();
+				return userRemove;// Clear input buffer.
+			} catch (IndexOutOfBoundsException e) {
+				System.out.println("Invalid input. ");
+				kb.nextLine();
+				return userRemove;// Clear input buffer.
+			}
+		}
+		System.out.println(userRemove);
+		return userRemove;
+
 	}
 }
-
-
-
-	}
-	}
-		
-
-

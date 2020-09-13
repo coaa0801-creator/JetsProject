@@ -60,6 +60,11 @@ public class RunJetsApp {
 				airfield.addAJet();
 				keepGoing = mainOrQuit(keepGoing);
 				break;
+			case "8":
+				airfield.printJetListForUserRemove();
+				airfield.removeJet();
+				keepGoing = mainOrQuit(keepGoing);
+				break;
 			case "10":
 				keepGoing = false;
 				break;
