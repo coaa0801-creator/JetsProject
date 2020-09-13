@@ -124,7 +124,7 @@ while (keepGoing) {
 	String addJet = kb.nextLine();
 	addJet = addJet.toLowerCase();
 	switch (addJet) {
-	case "1":
+	case "1": case "passenger":
 			System.out.print("What model is this?");
 			String newModel = kb.nextLine();
 			System.out.print("In MPH, what is it's top speed?");
@@ -139,13 +139,35 @@ while (keepGoing) {
 		
 		
 		
-	case "2":
+	case "2": case "fighter":
+		System.out.print("What model is this?");
+		newModel = kb.nextLine();
+		System.out.print("In MPH, what is it's top speed?");
+		newSpeed = kb.nextDouble();
+		System.out.print("How many miles can it fly before refueling?");
+		newRange = (int)kb.nextDouble();
+		System.out.print("How much does it cost?");
+		newPrice = kb.nextLong();
+		this.allplanes.add(new FighterJet(newModel, newSpeed, newRange, newPrice));
+		keepGoing = false;
+		break;
 		
 		
 		
 		
 		
-	case "3":
+	case "3": case "cargo":
+		System.out.print("What model is this?");
+		newModel = kb.nextLine();
+		System.out.print("In MPH, what is it's top speed?");
+		newSpeed = kb.nextDouble();
+		System.out.print("How many miles can it fly before refueling?");
+		newRange = (int)kb.nextDouble();
+		System.out.print("How much does it cost?");
+		newPrice = kb.nextLong();
+		this.allplanes.add(new CargoPlane(newModel, newSpeed, newRange, newPrice));
+		keepGoing = false;
+		break;
 		
 		
 		
