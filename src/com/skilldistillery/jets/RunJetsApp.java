@@ -19,13 +19,13 @@ public class RunJetsApp {
 
 	private void launchApp() {
 		run.welcomeUserMenu();
-		airfield.parseFromTextFile();
 		run.MenuSwitch();
 		run.Goodbye();
 
 	}
 
 	private void MenuSwitch() {
+		airfield.parseFromTextFile();
 		boolean keepGoing = true;
 		whatChoice();
 		while (keepGoing) {
@@ -63,6 +63,10 @@ public class RunJetsApp {
 			case "8":
 				airfield.printJetListForUserRemove();
 				airfield.removeJet();
+				keepGoing = mainOrQuit(keepGoing);
+				break;
+			case "9":
+				airfield.search();
 				keepGoing = mainOrQuit(keepGoing);
 				break;
 			case "10":
@@ -116,7 +120,13 @@ private void Goodbye() {
 		quit = quit.toLowerCase();
 		if (quit.equals("2") || quit.equals("quit")) {
 			keepGoing = false;
-		}else { printMainMenu();
+		}
+		else if (quit.equals("1") || quit.equals("main")) {
+			printMainMenu();
+			whatChoice();
+		}		else { 
+				System.out.println("Sorry, didn't recognize that. Here's the Main Menu");
+				printMainMenu();
 				whatChoice();
 		}
 		

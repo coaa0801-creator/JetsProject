@@ -18,11 +18,11 @@ public class CargoPlane extends Jet implements CargoCarrier{
 
 @Override
 	public void fly() {
-		DecimalFormat rnd = new DecimalFormat("##.0");
+		DecimalFormat rnd = new DecimalFormat("##0.0");
 //	 String cpFly = super.fly();  
-			System.out.println("Cargo Plane taking off... \n\tModel " + getModel() + ", can travel "
+			System.out.println("\nCargo Plane taking off... \n\tModel " + getModel() + ", can travel "
 			+ getRange() + " miles at a speed of " + getSpeed() + " miles per hour. That's Mach " + rnd.format(getSpeedInMach())
-			+ ". Meaning this " + getModel() + " can fly for " + getHoursBeforeNoFuel() + " hours and " + getMinutesBeforeNoFuel() + " minutes before it runs out of fuel.");
+			+ ". \n\tMeaning this " + getModel() + " can fly for " + getHoursBeforeNoFuel() + " hours and " + getMinutesBeforeNoFuel() + " minutes before it runs out of fuel.");
 //return cpFly;
 
 }

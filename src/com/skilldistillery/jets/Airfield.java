@@ -50,7 +50,7 @@ public class Airfield {
 	}
 
 	public void allFly() {
-		System.out.println("All jets, prepare for flight!");
+		System.out.println("Tower to Airfield ---- All jets, prepare for flight!");
 		for (Jet jet : allplanes) {
 			jet.fly();
 
@@ -58,7 +58,7 @@ public class Airfield {
 	}
 
 	public void loadPlanes() {
-		System.out.println("Any of you out there planning to carry something, load up!");
+		System.out.println("Tower to Airfield --- Any of you out there planning to carry something, load up!");
 		for (Jet jet : allplanes) {
 			if (jet instanceof CargoCarrier) {
 				((CargoCarrier) jet).loadCargo();
@@ -206,7 +206,7 @@ public class Airfield {
 			}
 		}
 //	System.out.println(userRemove);
-		System.out.println("\nYou have successfully removed airfield parking credntials from " + allplanes.get(i - 1));
+		System.out.println("\nYou have successfully removed airfield parking credentials from " + allplanes.get(i - 1));
 		allplanes.remove(i - 1);
 	}
 
@@ -233,5 +233,9 @@ public class Airfield {
 		System.out.println(userRemove);
 		return userRemove;
 
+	}
+
+	public void search() {
+			System.out.println("Ooops, this hasn't been created yet but we're working on it...");
 	}
 }

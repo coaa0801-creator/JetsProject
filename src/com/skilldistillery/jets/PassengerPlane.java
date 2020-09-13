@@ -9,10 +9,10 @@ public class PassengerPlane extends Jet implements PassengerFlight, CargoCarrier
 	}
 	@Override
 	public void fly() {
-		DecimalFormat rnd = new DecimalFormat("##.0");
-		System.out.println("Passenger Plane taking off... \n\tModel " + getModel() + ", can travel "
+		DecimalFormat rnd = new DecimalFormat("##0.0");
+		System.out.println("\nPassenger Plane taking off... \n\tModel " + getModel() + ", can travel "
 				+ getRange() + " miles at a speed of " + getSpeed() + " miles per hour. That's Mach " + rnd.format(getSpeedInMach())
-				+ ". Meaning this " + getModel() + " can fly for " + getHoursBeforeNoFuel() + " hours and " + getMinutesBeforeNoFuel() + " minutes before it runs out of fuel.");
+				+ ". \n\tMeaning this " + getModel() + " can fly for " + getHoursBeforeNoFuel() + " hours and " + getMinutesBeforeNoFuel() + " minutes before it runs out of fuel.");
 //return ppFly;
 		
 	}
