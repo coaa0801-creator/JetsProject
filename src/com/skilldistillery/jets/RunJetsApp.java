@@ -28,40 +28,40 @@ public class RunJetsApp {
 			String userInput = kb.nextLine();
 			userInput = userInput.toLowerCase();
 			switch (userInput) {
-			case "1":
+			case "1": case "print fleet": case "print": case "all": case "print all":
 				System.out.println(airfield.getAllplanes());
 				keepGoing = mainOrQuit(keepGoing);
 				break;
-			case "2":
+			case "2": case "all fly":
 				airfield.allFly();
 				keepGoing = mainOrQuit(keepGoing);
 				break;
-			case "3":
+			case "3": case "fastest":
 				airfield.fastestJet();
 				keepGoing = mainOrQuit(keepGoing);
 				break;
-			case "4":
+			case "4": case "range":
 				airfield.longestRange();
 				keepGoing = mainOrQuit(keepGoing);
 				break;
-			case "5":
+			case "5": case "load":
 				airfield.loadPlanes();
 				keepGoing = mainOrQuit(keepGoing);
 				break;
-			case "6" :
+			case "6" : case"fight":
 				airfield.dogFight();
 				keepGoing = mainOrQuit(keepGoing);
 				break;
-			case "7":
+			case "7":case "add":
 				airfield.addAJet();
 				keepGoing = mainOrQuit(keepGoing);
 				break;
-			case "8":
+			case "8": case "remove":
 				airfield.printJetListForUserRemove();
 				airfield.removeJet();
 				keepGoing = mainOrQuit(keepGoing);
 				break;
-			case "9":
+			case "9": case "search":
 				String menu = airfield.search();
 				if (menu.equals("Main Menu")) {
 				printMainMenu();
@@ -71,7 +71,7 @@ public class RunJetsApp {
 					break;
 				}
 					
-			case "10":
+			case "10": case "quit":
 				keepGoing = false;
 				break;
 
